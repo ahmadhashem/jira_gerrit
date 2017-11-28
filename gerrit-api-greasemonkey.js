@@ -89,10 +89,6 @@
 					alert(storyId + '\n------------------------------------------------------------------------------\n' + response);
 				}
 
-			
-		  		
-		//getOracleComponentsFromJira('2017-07-01', '2017-07-07');
-		//getOracleComponentsFromJira(fromDate, toDate);
     };
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
