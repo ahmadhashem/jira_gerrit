@@ -1,19 +1,6 @@
 "use strict";
 
-/*chrome.tabs.query({
-		currentWindow: true,
-		active: true
-	  }, function(tabs){
-		    var tabId = currentTab;
-			chrome.tabs.sendMessage(tabId, {message: 'oracleEntries', data: oracleTimes}, function(response) {
-			console.log('entries sent successfully!');
-		  });
-	  });*/
-	  
-
-chrome.browserAction.onClicked.addListener(function(tab) {
-  // No tabs or host permissions needed!
-  (function() {
+(function() {
     // Load the script
     var script = document.createElement("SCRIPT");
     script.src = 'https://code.jquery.com/jquery-3.2.1.min.js';
@@ -34,10 +21,8 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 			  });
 		  });*/
 		  
-		  chrome.tabs.getSelected(null, function(tab) {
-				let tabUrl = tab.url;
-				
-				let currentUrl = new URL(tabUrl);
+		  
+				let currentUrl = document.location.href;
 				
 				let selectedIssue = currentUrl.searchParams.get('selectedIssue');
 
@@ -104,11 +89,10 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 					alert(storyId + '\n------------------------------------------------------------------------------\n' + response);
 				}
 
-			});
+			
 		  		
 		//getOracleComponentsFromJira('2017-07-01', '2017-07-07');
 		//getOracleComponentsFromJira(fromDate, toDate);
     };
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
-});
